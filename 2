@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ReadOnlyArrayList {
+
+    public static void main(String[] args) {
+        // Create your original ArrayList
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+
+        //here Read only view of list
+        List<String> readOnlyFruits = Collections.unmodifiableList(fruits);
+
+        // Modify read-only list throws a exception
+        try {
+            readOnlyFruits.add("Grapefruit");
+        } catch (UnsupportedOperationException e) {
+            System.out.println("Cannot modify read-only list: " + e.getMessage());
+        }
+
+        System.out.println("Read-only list: " + readOnlyFruits);
+    }
+}
