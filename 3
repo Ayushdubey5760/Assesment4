@@ -1,0 +1,38 @@
+public class Trainee implements Comparable<Trainee> {
+
+    private String name;
+    private int age;
+    private String skillSet;
+
+    @Override
+    public int compareTo(Trainee other) {
+        // smaller to larger
+        return this.age - other.age;
+    }
+
+    @Override
+    public String toString() {
+        return "Trainee{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", skillSet='" + skillSet + '\'' +
+                '}';
+    }
+}
+
+public class SortTrainees {
+
+    public static void main(String[] args) {
+        List<Trainee> trainees = new ArrayList<>();
+        trainees.add(new Trainee("Alice", 25, "Java, Python"));
+        trainees.add(new Trainee("Bob", 30, "C++, JavaScript"));
+
+        // Sort trainees using their compareTo() implementation
+        trainees.sort(Comparator.naturalOrder());
+
+        System.out.println("Sorted trainees:");
+        for (Trainee trainee : trainees) {
+            System.out.println(trainee);
+        }
+    }
+}
