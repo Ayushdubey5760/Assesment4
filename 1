@@ -1,0 +1,44 @@
+public class FindElement {
+
+    public static class Node {
+        public int data;
+        public Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(2);
+        head.next.next.next.next = new Node(1);
+
+        int element = 2;
+
+        // Use two variables to track both occurrences
+        Node first = null;
+        Node last = null;
+
+        // Traverse the list
+        Node current = head;
+        while (current != null) {
+            if (current.data == element) {
+                // Update first occurrence if not found yet
+                if (first == null) {
+                    first = current;
+                }
+
+            current = current.next;
+        }
+
+        // Print results
+        if (first != null) {
+            System.out.println("First occurrence: " + first.data);
+        } else {
+            System.out.println("Element not found");
+        }
+    }
+}
